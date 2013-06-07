@@ -3,10 +3,10 @@
 //  Recipe
 //
 //  Created by Goodell, Jason on 6/6/13.
-//  Copyright (c) 2013 Epocrates Inc. All rights reserved.
 //
 
 #import "PRPRecipesListViewController.h"
+#import "PRPViewController.h"
 
 @interface PRPRecipesListViewController ()
 
@@ -108,14 +108,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-    NSLog(@"'%@' was tapped!", [[self.dataSource recipeAtIndex:indexPath.row] title]);
+    PRPViewController *detailVC = [[PRPViewController alloc] initWithNibName:@"PRPViewController" bundle:nil];
+    detailVC.recipe = [self.dataSource recipeAtIndex:indexPath.row];
+    NSLog(@"'%@' was tapped!", [detailVC.recipe title]);
+    [self presentViewController:detailVC animated:YES completion:nil];
 }
 
 @end

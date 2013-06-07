@@ -3,7 +3,6 @@
 //  Recipe
 //
 //  Created by Goodell, Jason on 6/7/13.
-//  Copyright (c) 2013 Epocrates Inc. All rights reserved.
 //
 /*  For abstracting out the PRPRRecipesListViewController's
     interaction with the list of recipes.
