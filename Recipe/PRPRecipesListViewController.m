@@ -81,7 +81,8 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.dataSource deleteRecipeAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView deleteRowsAtIndexPaths:@[indexPath]
+                         withRowAnimation:UITableViewRowAnimationAutomatic];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -110,6 +111,7 @@
 {
     PRPViewController *detailVC = [[PRPViewController alloc] initWithNibName:@"PRPViewController" bundle:nil];
     detailVC.recipe = [self.dataSource recipeAtIndex:indexPath.row];
+    [detailVC setModalTransitionStyle: UIModalTransitionStyleFlipHorizontal];
     NSLog(@"'%@' was tapped!", [detailVC.recipe title]);
     [self presentViewController:detailVC animated:YES completion:nil];
 }
