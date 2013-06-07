@@ -17,6 +17,7 @@
 #import <Foundation/Foundation.h>
 #import "PRPRecipe.h"
 
+//@class PRPRecipe;
 @protocol PRPRecipesListDataSource <NSObject>
 - (NSInteger)recipeCount;
 - (PRPRecipe *)recipeAtIndex:(NSInteger)index;

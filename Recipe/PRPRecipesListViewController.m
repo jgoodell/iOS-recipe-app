@@ -57,16 +57,13 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     PRPRecipe *recipe = [self.dataSource recipeAtIndex:indexPath.row];
     cell.textLabel.text = [recipe title];
     cell.imageView.image = [recipe imageThumbnail];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@",[recipe preparationTime],@"minutes"];
-    NSLog(@"here");
-    NSLog(@"Set Lable: %@", cell.detailTextLabel.text);
-    NSLog(@"there");
     return cell;
 }
 
@@ -118,6 +115,7 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    NSLog(@"'%@' was tapped!", [[self.dataSource recipeAtIndex:indexPath.row] title]);
 }
 
 @end
